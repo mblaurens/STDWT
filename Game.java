@@ -91,20 +91,8 @@ public class Game {
     public GfxStuff getGfx() {return gfx;}
 
     public void test() {
-        BufferedImage bg = new BufferedImage(gfx.getSize().width,
-                                             gfx.getSize().height,
-                                             BufferedImage.TYPE_4BYTE_ABGR);
-        BufferedImage tile = gfx.readImage("img/dirt.png");
-        Graphics2D g = bg.createGraphics();
-        for(int x=0; x<640; x++) {
-            for(int y=0; y<480; y++) {
-                if(y>400){
-                    if(x%10==0 && y%10==0)
-                        g.drawImage(tile,null,x,y);
-                }
-            }
-        }
-        GfxEffect bgfx = new GfxEffect(new Sprite(bg),new Vec2(0,0));
-        gfx.getDisplays()[0].getBG().addSpritable(bgfx);
+        //gfx.getDisplays()[0].tileBG(gfx.readImage("img/dirt.png"));
+        gfx.getDisplays()[1].tileBG(gfx.readImage("img/diamond.png"));
+        gfx.getDisplays()[2].tileBG(gfx.readImage("img/dirt.png"));
     }
 }

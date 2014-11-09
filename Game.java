@@ -91,8 +91,11 @@ public class Game {
     public GfxStuff getGfx() {return gfx;}
 
     public void test() {
-        //gfx.getDisplays()[0].tileBG(gfx.readImage("img/dirt.png"));
-        gfx.getDisplays()[1].tileBG(gfx.readImage("img/diamond.png"));
-        gfx.getDisplays()[2].tileBG(gfx.readImage("img/dirt.png"));
+        gfx.getDisplays()[0].tileBG(gfx.readImage("img/diamond.png"));
+        gfx.getDisplays()[1].tileBG(gfx.readImage("img/dirt.png"));
+        gfx.getDisplays()[2].tileBG(gfx.readImage("img/diamond.png"));
+        Button tb = new Button(new Sprite(gfx.readImage("img/diamond.png")),
+                               new Vec2(50,50));
+        gfx.getDisplays()[1].addToUI(tb);
     }
 }

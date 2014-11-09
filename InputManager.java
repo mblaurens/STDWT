@@ -16,7 +16,7 @@ public class InputManager {
         keyPressB = new LinkedList<KeyEvent>();
         mouseInB = new LinkedList<MouseEvent>();
     }
-
+    
     public void clearInput() {
         keyHeldB.clear();
         keyPressB.clear();
@@ -85,11 +85,24 @@ public class InputManager {
             break;
         case MOVE_UP:
             break;
+        case MOVE_DOWN:
+            break;
         case DEBUG_DUMPDISPLAYS: 
             gfx.dumpDisplays(); 
             break;
         case INVALID_KEY_COMMAND: 
-            System.out.println(((KeyEvent) e).getKeyChar()); break;
+            System.out.println(((KeyEvent) e).getKeyChar()); 
+            break;
+        case LEFT_CLICK:
+            double mx = ((MouseEvent) e).getX() - 
+                game.getGui().getInsets().left;
+            double my = ((MouseEvent) e).getY() - 
+                game.getGui().getInsets().top;
+            LinkedList<Button> buttons = gfx.effectAt(mx,my);
+            for(Button b : buttons) {
+                b.activate();
+            }
+            break;
         case INVALID_MOUSE_COMMAND: 
             String r = ((MouseEvent) e).getButton()+" : ";
             r += ((MouseEvent) e).getX()+","+((MouseEvent) e).getY();

@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
+import java.util.*;
 import javax.swing.*;
 import javax.imageio.*;
 
@@ -22,6 +23,37 @@ public class GfxStuff extends JLayeredPane {
         g.drawImage(img,0,0,null);
         paintComponents(g);
         Toolkit.getDefaultToolkit().sync();
+    }
+
+    public LinkedList<Button> effectAt(double x, double y) {
+        LinkedList<Button> r = new LinkedList<Button>();
+        Display curdisp = null;
+        for(Display d : displays) {
+            if(d.getLocation().contains(x,y)) {
+                curdisp = d;
+            }
+        } 
+        if(curdisp!=null) {
+            for (Layer l : curdisp.getLayers()) {
+                for (Spritable s : l.getSprites()) {
+                    if(s instanceof Button) {
+                        Rectangle rt;
+                        Sprite spr = s.getSprite();
+                        rt = new Rectangle((int) s.getPos().getX() +
+                                           (int) l.getRect().getX(),
+                                           (int) s.getPos().getY() +
+                                           (int) l.getRect().getY(),
+                                           spr.getImg().getWidth(),
+                                           spr.getImg().getHeight());
+                        System.out.println(rt);
+                        if(rt.contains(x,y)) {
+                            r.add((Button)s);
+                        }
+                    }
+                }
+            }
+        }
+        return r;
     }
 
     public void refresh() {
@@ -54,6 +86,7 @@ public class GfxStuff extends JLayeredPane {
         dumpImage(img,"GfxStuff");
         for (Display d : displays) {
             dumpImage(d.getImg(),d.getName());
+            dumpImage(d.getUI().getImg(),d.getName()+"UI");
             dumpImage(d.getFG().getImg(),d.getName()+"FG");
             dumpImage(d.getBG().getImg(),d.getName()+"BG");
         }

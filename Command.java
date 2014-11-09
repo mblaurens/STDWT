@@ -5,9 +5,9 @@ public enum Command {
     MOVE_LEFT,
     MOVE_DOWN,
     MOVE_RIGHT,
-    SPAWN_BALL,
     DEBUG_DUMPDISPLAYS,
     INVALID_KEY_COMMAND,
+    LEFT_CLICK,
     INVALID_MOUSE_COMMAND,
     NO_COMMAND,
     WTF
@@ -28,7 +28,7 @@ public enum Command {
 	    }
 	} else if (e instanceof MouseEvent) {
 	    switch(((MouseEvent) e).getButton()) {
-	    case MouseEvent.BUTTON1: return SPAWN_BALL;
+	    case MouseEvent.BUTTON1: return LEFT_CLICK;
 	    default: return INVALID_MOUSE_COMMAND;
 	    }
 	} else {

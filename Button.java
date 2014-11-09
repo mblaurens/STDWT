@@ -1,11 +1,21 @@
 public class Button extends GfxEffect {
+    ButtonAction action;
     
-    
-    public Button(Sprite s, Vec2 p) {
+    public Button(ButtonAction ba, Sprite s, Vec2 p) {
         super(s,p);
+        action = ba;
     }
 
     public void activate() {
-        System.out.println("ACTIVATE!");
+        switch(action) {
+        case NOTHING:
+            break;
+        case WTF:
+            System.out.println("wtf");
+            break;
+        default:
+            System.out.println("how?");
+            break;
+        }
     }
 }

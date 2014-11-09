@@ -7,11 +7,13 @@ public class Layer {
     private Display parent;
     private Rectangle rect;
     private LinkedList<Spritable> sprites;
+    private LinkedList<TextElement> texts;
     
     public Layer(Display disp) {
         parent = disp;
         rect = disp.getLocation();
         sprites = new LinkedList<Spritable>();
+        texts = new LinkedList<TextElement>();
     }
 
     public void putSpritable(Spritable s, Graphics2D target) {
@@ -19,6 +21,12 @@ public class Layer {
                          null,
                          (int)s.getPos().getX(),
                          (int)s.getPos().getY());
+    }
+
+    public void putTextElement(TextElement t, Graphics2D target) {
+        target.drawString(t.getStr(),
+                          (int) t.getPos().getX(),
+                          (int) t.getPos().getY());
     }
     public void putImg(BufferedImage i, Vec2 p, Graphics2D target) {
         target.drawImage(i,null,(int)p.getX(),(int)p.getY());
@@ -28,6 +36,12 @@ public class Layer {
     }
     public void removeSpritable(Spritable s) {
         sprites.remove(s);
+    }
+    public void addTextElem(TextElement t) {
+        texts.add(t);
+    }
+    public void removeTextElem(TextElement t) {
+        texts.remove(t);
     }
     public void drawTo(Graphics2D target) {
         target.drawImage(getImg(),
@@ -44,6 +58,12 @@ public class Layer {
         while(it.hasNext()) {
             s = it.next();
             putSpritable(s,g);
+        }
+        Iterator<TextElement> it2 = texts.iterator();
+        TextElement t;
+        while(it2.hasNext()) {
+            t = it2.next();
+            putTextElement(t,g);
         }
         return r;
     }

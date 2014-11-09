@@ -14,7 +14,7 @@ public class Character {
 	private int xp;
 	private int xpToNextLevel;
 
-	public Character { // constructor method, EDIT
+	public Character() { // constructor method, EDIT
 		stubbornness = 0;
 		wisdom = 0;
 		dodge = 0;

@@ -45,7 +45,6 @@ public class GfxStuff extends JLayeredPane {
                                            (int) l.getRect().getY(),
                                            spr.getImg().getWidth(),
                                            spr.getImg().getHeight());
-                        System.out.println(rt);
                         if(rt.contains(x,y)) {
                             r.add((Button)s);
                         }

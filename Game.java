@@ -13,6 +13,8 @@ public class Game {
     private InputManager input = new InputManager(this);
     private Gui gui = new Gui(this);
 
+    private Turtle p1;
+
     private long gamestarttime;
     private long framestarttime;
     private long frametime;
@@ -30,6 +32,7 @@ public class Game {
     public void initGame() {
         gamestarttime = System.currentTimeMillis();
         gfx.refresh();
+        p1 = new Turtle();
         test();
     }
     
@@ -81,7 +84,10 @@ public class Game {
     }
 	
     public void doInput() {input.doInput();}
-    public void render() {gfx.refresh();}
+
+    public void render() {
+        gfx.refresh();
+    }
 
     public void pushKeyInput(KeyEvent e) {input.pushKeyPress(e);}
     public void removeKeyInput(KeyEvent e) {input.removeKeyInput(e);}
@@ -91,11 +97,15 @@ public class Game {
     public GfxStuff getGfx() {return gfx;}
 
     public void test() {
-        gfx.getDisplays()[0].tileBG(gfx.readImage("img/diamond.png"));
+        gfx.getDisplays()[0].tileBG(gfx.readImage("img/dirt.png"));
         gfx.getDisplays()[1].tileBG(gfx.readImage("img/dirt.png"));
-        gfx.getDisplays()[2].tileBG(gfx.readImage("img/diamond.png"));
-        Button tb = new Button(new Sprite(gfx.readImage("img/diamond.png")),
+        gfx.getDisplays()[2].tileBG(gfx.readImage("img/dirt.png"));
+        Button tb = new Button(ButtonAction.WTF,
+                               new Sprite(gfx.readImage("img/diamond.png")),
                                new Vec2(50,50));
         gfx.getDisplays()[1].addToUI(tb);
+        TextElement te = new TextElement(new Vec2(20,100),
+                                         p1.getStats()); 
+        gfx.getDisplays()[0].getUI().addTextElem(te);
     }
 }

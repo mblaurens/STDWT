@@ -47,4 +47,7 @@ public class Layer {
         }
         return r;
     }
+
+    public Rectangle getRect() {return rect;}
+    public LinkedList<Spritable> getSprites() {return sprites;}
 }

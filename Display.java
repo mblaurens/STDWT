@@ -5,25 +5,29 @@ import javax.swing.*;
 public class Display {
     private String name; //identifies display for debug commands
     private Rectangle rect; //represents area occupied by display
-    private Layer fg,bg; //
+    private Layer[] layers; //
     
     public Display(String n, Rectangle l) {
         name = n;
         rect = l;
-        fg = new Layer(this);
-        bg = new Layer(this);
+        layers = new Layer[3];
+        for(int i=0; i<3; i++) {
+            layers[i] = new Layer(this);
+        }
     }
 
     public void drawTo(Graphics2D target) {
-        bg.drawTo(target);
-        fg.drawTo(target);
+        getBG().drawTo(target);
+        getFG().drawTo(target);
+        getUI().drawTo(target);
     }
 
     public BufferedImage getImg() {
         BufferedImage r = new BufferedImage((int)rect.getWidth(),(int)rect.getHeight(),BufferedImage.TYPE_4BYTE_ABGR);
         Graphics2D g = r.createGraphics();
-        g.drawImage(bg.getImg(),null,0,0);
-        g.drawImage(fg.getImg(),null,0,0);
+        for(int i=2; i>=0; i--) {
+            g.drawImage(getLayers()[i].getImg(),null,0,0);
+        }
         return r;
     }
 
@@ -45,8 +49,14 @@ public class Display {
         getBG().addSpritable(bgfx);
     }
 
+    public void addToUI(Button b) {
+        getUI().addSpritable(b);
+    }
+
     public String getName() {return name;}
     public Rectangle getLocation() {return rect;}
-    public Layer getFG() {return fg;}
-    public Layer getBG() {return bg;}
+    public Layer[] getLayers() {return layers;}
+    public Layer getUI() {return layers[0];}
+    public Layer getFG() {return layers[1];}
+    public Layer getBG() {return layers[2];}
 }

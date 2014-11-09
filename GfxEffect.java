@@ -9,12 +9,12 @@ public class GfxEffect implements Spritable {
     private double angVel;
     
     public GfxEffect(Sprite s, Vec2 p) {
-	sprite = s;
-	lifetime = -1;
-	pos = p;
-	vel = new Vec2(0.0,0.0);
-	rotation = 0;
-	angVel = 0;
+        sprite = s;
+        lifetime = -1;
+        pos = p;
+        vel = new Vec2(0.0,0.0);
+        rotation = 0;
+        angVel = 0;
     }
     
     public Sprite getSprite() {return sprite;}

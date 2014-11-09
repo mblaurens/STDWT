@@ -1,60 +1,150 @@
-Skill 1 Swing
-	Link 4 5 9
-		Type 1 Active 
-Skill 2 Swagger
-	Link 5 6 7 
-		Type 2 Active
-Skill 3 Add_Numbers
-	Link 7 8 9
-		Type 3 Active
-Skill 4 +Stub
-	Link 1 5 9 10 
-		Type 1 Passive 
-Skill 5 +StubSlip
-	Link 1 2 4 6 11
-		Type 4 Passive
-Skill 6 +Slip
+ID,Type,Name,Percent Damage,Cost in MP,list of links to
+ID,Type,Name,Stub,Slip,Wis,Hp,Mp,Dodge,Spell Damage,Money,Defense,list of links
+1,Active,Swing,50,0,4,5,9
+2 Swagger, Link 5 6 7 Type 2 Active Cost 0 Damage Slip/2
+3 Add_Numbers Link 7 8 9 Type 3 Active Cost 0 Damage Wis/2
+4 +Stub Link 1 5 9 10 Type 1 Passive Bonus +2 Stub 
+5 +StubSlip Link 1 2 4 6 11 Type 4 Passive Bonus +1 Stub +1 Slip
+6 +Slip
 	Link 2 5 7 12
 		Type 2 Passive
-Skill 7 +SlipWis
+7 +SlipWis
 	Link 2 3 6 8 13
 		Type 5 Passive
-Skill 8 +Wis
+8 +Wis
 	Link 3 6 9 7 14
 		Type 3 Passive
-Skill 9 +WisStub
+9 +WisStub
 	Link 1 3 4 8 15
 		Type 6 Passive
-Skill 10 +Stub
+10 +Stub
 	Link 4 16
 		Type 1 Passive
-Skill 11 +StubSlip
+11 +StubSlip
 	Link 5 19 
 		Type 4 Passive
-Skill 12 +Slip
+12 +Slip
 	Link 6 22
 		Type 2 Passive
-Skill 13 +SlipWiz
+13 +SlipWiz
 	Link 7 25
 		Type 5 Passive
-Skill 14 +Wis
+14 +Wis
 	Link 8 28
 		Type 3 Passive
-Skill 15 +WisStub
+15 +WisStub
 	Link 9 31
 		Type 6 Passive
-Skill 16 +Stub
+16 +Stub
 	Link 10 17 33 81 
 		Type 1 Passive
-Skill 17 +Stub
+17 +Stub
 	Link 16 18 34
 		Type 1 Passive
-Skill 18 +Stub
+18 +Stub
 	Link 17 19 40
 		Type 1 PAssive
-Skill 19 +StubSlip
+19 +StubSlip
 	Link 18 20 46
 		Type 4 Passive
-Skill 20 +Slip
+20 +Slip
 	Link 19 21 53 
 		Type 2 Passive
+21 +Slip
+	Link 20 22 35 
+		Type 2 Passive
+22 +Slip
+	Link 21 23 88 
+		Type 2 Passive
+23 +Slip
+	Link 22 24 36 
+		Type 2 Passive
+24 +Slip
+	Link 23 25 54 
+		Type 2 Passive
+25 +SlipWis
+	Link 13 24 26 60 61
+		Type 5 Passive
+26 +Wis
+	Link 25 27 67
+		Type 3 Passive
+27 +Wis
+	Link 26 28 37
+		Type 3 Passive
+28 +Wis
+	Link 14 27 29 96
+		Type 3 Passive
+29 +Wis
+	Link 28 30 38 
+		Type 3 Passive
+30 +Wis
+	Link 29 31 68 
+		Type 3 Passive
+31 +WisStub
+	Link 15 30 32 74 75
+		Type 6 Passive
+32 +Stub
+	Link 31 33 80
+		Type 1 Passive
+33 +Stub
+	Link 32 16 39
+		Type 1 Passive
+34 +Stub
+	Link 17 
+		Type 1 Passive
+35 +Slip
+	Link 21 
+		Type 2 Passive
+36 +Slip
+	Link 23
+		Type 2 Passive
+37 +Wis
+	Link 27
+		Type 3 Passive
+38 +Wis
+	Link 29
+		Type 3 Passive
+39 +Stub
+	Link 33
+		Type 2 Passive
+40 +Stub
+	Link 18 41
+		Type 1 Passive
+41 +Stub
+	Link 19 42 
+		Type 1 Passive
+42 +Stub
+	Link 20 43
+		Type 1 Passive
+43 Suit and Tie
+	Link 42 44
+		Type 1 Buff
+44 +HP
+	Link 43 45
+		Type 7 Passive
+45 +HP
+	Link 44 46
+		Type 7 Passive
+46 +HP
+	Link 19 45 
+		Type 7 Passive
+47 +HP
+	Link 19 48
+		Type 7 Passive
+48 +HP
+	Link 47 49
+		Type 7 Passive
+49 +HP
+	Link 48 50
+		Type 7 Passive
+50 Garotte
+	Link 49 51
+		Type 4 Active
+51 +Dodge
+	Link 50 52
+		Type 8 Passive
+
+
+
+
+
